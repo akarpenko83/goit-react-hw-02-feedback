@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class Feedback extends Component {
     state = {
-        good: 0,
-        neutral: 0,
-        bad: 0,
+        good: 3,
+        neutral: 5,
+        bad: 1,
     };
 
-    countTotalFeedback() {}
+    countTotalFeedback = () => {};
 
-    countPositiveFeedbackPercentage() {}
+    countPositiveFeedbackPercentage = () => {};
 
     render() {
         return (
@@ -19,9 +19,10 @@ class Feedback extends Component {
                 <button>Neutral</button>
                 <button>Bad</button>
                 <h2>Statistics</h2>
-                <p>Good:{this.state.good}</p>
-                <p>Neutral:{this.state.neutral}</p>
-                <p>Bad:{this.state.bad}</p>
+                <p>Good: {this.state.good}</p>
+                <p>Neutral: {this.state.neutral}</p>
+                <p>Bad: {this.state.bad}</p>
+                <p>Positive feedback: %</p>
             </div>
         );
     }
