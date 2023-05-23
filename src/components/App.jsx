@@ -13,17 +13,19 @@ class App extends Component {
     };
 
     onLeaveFeedback = evt => {
-        if (evt.target.id === 'good') {
+        const buttonName = evt.target.firstChild.data;
+
+        if (buttonName === 'Good') {
             this.setState(prevState => ({
                 good: (prevState.good += 1),
             }));
-        } else if (evt.target.id === 'neutral') {
+        } else if (buttonName === 'Neutral') {
             this.setState(prevState => ({
                 neutral: (prevState.neutral += 1),
             }));
-        } else if (evt.target.id === 'bad') {
+        } else if (buttonName === 'Bad') {
             this.setState(prevState => ({
-                bad: (prevState.neutral += 1),
+                bad: (prevState.bad += 1),
             }));
         }
     };
