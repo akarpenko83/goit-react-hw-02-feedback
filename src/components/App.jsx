@@ -33,10 +33,9 @@ class App extends Component {
                 this.state.neutral +
                 this.state.bad,
         );
-        const positivePercentage = Number(
-            (this.state.good / total).toFixed(2),
+        const positivePercentage = Math.round(
+            (this.state.good / total) * 100,
         );
-
         return (
             <Section>
                 <FeedbackOptions
