@@ -1,3 +1,5 @@
+import { Title } from './feedback.styled';
+
 export default function Feedback({ message }) {
-    return <div>{message}</div>;
+    return <Title>{message}</Title>;
 }

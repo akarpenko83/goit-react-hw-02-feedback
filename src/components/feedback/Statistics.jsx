@@ -1,4 +1,8 @@
-// import React from 'react';
+import {
+    Title,
+    StatsContainer,
+    StatsData,
+} from './feedback.styled';
 
 export default function Statistics({
     good,
@@ -8,13 +12,24 @@ export default function Statistics({
     positivePercentage,
 }) {
     return (
-        <div>
-            <h2>Statistics</h2>
-            <p>Good: {good}</p>
-            <p>Neutral: {neutral}</p>
-            <p>Bad: {bad}</p>
-            <p>Total: {total}</p>
-            <p>Positive feedback: {positivePercentage}%</p>
-        </div>
+        <StatsContainer>
+            <Title>Statistics</Title>
+            <StatsData>
+                Good: <span>{good}</span>
+            </StatsData>
+            <StatsData>
+                Neutral: <span>{neutral}</span>
+            </StatsData>
+            <StatsData>
+                Bad: <span>{bad}</span>
+            </StatsData>
+            <StatsData>
+                Total:<span>{total}</span>
+            </StatsData>
+            <StatsData>
+                Positive feedback:
+                <span>{positivePercentage}%</span>
+            </StatsData>
+        </StatsContainer>
     );
 }

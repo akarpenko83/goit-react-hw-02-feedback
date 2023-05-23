@@ -1,10 +1,10 @@
-// import React from 'react';
+import { Container, Title } from './feedback.styled';
 
 export default function Section({ children }) {
     return (
-        <section title="">
-            <h2>Please leave feedback</h2>
+        <Container title="">
+            <Title>Please leave a feedback</Title>
             {children}
-        </section>
+        </Container>
     );
 }
