@@ -15,19 +15,9 @@ class App extends Component {
     onLeaveFeedback = evt => {
         const buttonName = evt.target.firstChild.data;
 
-        if (buttonName === 'Good') {
-            this.setState(prevState => ({
-                good: (prevState.good += 1),
-            }));
-        } else if (buttonName === 'Neutral') {
-            this.setState(prevState => ({
-                neutral: (prevState.neutral += 1),
-            }));
-        } else if (buttonName === 'Bad') {
-            this.setState(prevState => ({
-                bad: (prevState.bad += 1),
-            }));
-        }
+        this.setState(prevState => ({
+            [buttonName]: (prevState[buttonName] += 1),
+        }));
     };
     render() {
         const total = Number(
@@ -42,9 +32,9 @@ class App extends Component {
             <Section>
                 <FeedbackOptions
                     options={{
-                        good: 'Good',
-                        neutral: 'Neutral',
-                        bad: 'Bad',
+                        good: 'good',
+                        neutral: 'neutral',
+                        bad: 'bad',
                     }}
                     onLeaveFeedback={this.onLeaveFeedback}
                 ></FeedbackOptions>
