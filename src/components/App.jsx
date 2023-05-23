@@ -12,20 +12,20 @@ class App extends Component {
         bad: 0,
     };
 
-    onLeavePositiveFeedback = () => {
-        this.setState(prevState => ({
-            good: (prevState.good += 1),
-        }));
-    };
-    onLeaveNeutralFeedback = () => {
-        this.setState(prevState => ({
-            neutral: (prevState.neutral += 1),
-        }));
-    };
-    onLeaveBadFeedback = () => {
-        this.setState(prevState => ({
-            bad: (prevState.bad += 1),
-        }));
+    onLeaveFeedback = evt => {
+        if (evt.target.id === 'good') {
+            this.setState(prevState => ({
+                good: (prevState.good += 1),
+            }));
+        } else if (evt.target.id === 'neutral') {
+            this.setState(prevState => ({
+                neutral: (prevState.neutral += 1),
+            }));
+        } else if (evt.target.id === 'bad') {
+            this.setState(prevState => ({
+                bad: (prevState.neutral += 1),
+            }));
+        }
     };
     render() {
         const total = Number(
@@ -44,15 +44,7 @@ class App extends Component {
                         neutral: 'Neutral',
                         bad: 'Bad',
                     }}
-                    onLeavePositiveFeedback={
-                        this.onLeavePositiveFeedback
-                    }
-                    onLeaveNeutralFeedback={
-                        this.onLeaveNeutralFeedback
-                    }
-                    onLeaveBadFeedback={
-                        this.onLeaveBadFeedback
-                    }
+                    onLeaveFeedback={this.onLeaveFeedback}
                 ></FeedbackOptions>
                 {total ? (
                     <Statistics

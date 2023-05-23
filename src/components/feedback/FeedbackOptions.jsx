@@ -7,19 +7,22 @@ export default function FeedbackOptions(props) {
         <div>
             <Button
                 type="button"
-                onClick={props.onLeavePositiveFeedback}
+                id="good"
+                onClick={props.onLeaveFeedback}
             >
                 {good}
             </Button>
             <Button
                 type="button"
-                onClick={props.onLeaveNeutralFeedback}
+                id="neutral"
+                onClick={props.onLeaveFeedback}
             >
                 {neutral}
             </Button>
             <Button
                 type="button"
-                onClick={props.onLeaveBadFeedback}
+                id="bad"
+                onClick={props.onLeaveFeedback}
             >
                 {bad}
             </Button>
