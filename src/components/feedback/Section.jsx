@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Container, Title } from './feedback.styled';
 
 export default function Section({ children }) {
@@ -8,3 +10,8 @@ export default function Section({ children }) {
         </Container>
     );
 }
+
+Section.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.object)
+        .isRequired,
+};

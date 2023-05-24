@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
     Title,
     StatsContainer,
@@ -33,3 +34,10 @@ export default function Statistics({
         </StatsContainer>
     );
 }
+Statistics.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
+};
