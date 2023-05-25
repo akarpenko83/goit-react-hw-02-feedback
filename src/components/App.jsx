@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import background from './utils/background';
 import Section from './feedback/Section';
 import Statistics from './feedback/Statistics';
 import FeedbackOptions from './feedback/FeedbackOptions';
@@ -11,7 +11,6 @@ class App extends Component {
         neutral: 0,
         bad: 0,
     };
-
     onLeaveFeedback = evt => {
         const buttonName = evt.target.firstChild.data;
 
@@ -20,6 +19,8 @@ class App extends Component {
         }));
     };
     render() {
+        window.onload = background;
+
         const total = Number(
             this.state.good +
                 this.state.neutral +
