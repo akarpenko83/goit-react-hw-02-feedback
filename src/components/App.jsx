@@ -11,11 +11,11 @@ class App extends Component {
         neutral: 0,
         bad: 0,
     };
-    onLeaveFeedback = evt => {
-        const buttonName = evt.target.firstChild.data;
+    onLeaveFeedback = option => {
+        // const buttonName = evt.target.firstChild.data;
 
         this.setState(prevState => ({
-            [buttonName]: (prevState[buttonName] += 1),
+            [option]: prevState[option] + 1,
         }));
     };
     render() {
@@ -32,11 +32,7 @@ class App extends Component {
         return (
             <Section>
                 <FeedbackOptions
-                    options={{
-                        good: 'good',
-                        neutral: 'neutral',
-                        bad: 'bad',
-                    }}
+                    options={Object.keys(this.state)}
                     onLeaveFeedback={this.onLeaveFeedback}
                 ></FeedbackOptions>
                 {total ? (
