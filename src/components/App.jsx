@@ -12,23 +12,29 @@ class App extends Component {
         bad: 0,
     };
     onLeaveFeedback = option => {
-        // const buttonName = evt.target.firstChild.data;
-
         this.setState(prevState => ({
             [option]: prevState[option] + 1,
         }));
     };
+    getTotalFeedback = () => {
+        let total = 0;
+        for (let key in this.state) {
+            total += this.state[key];
+        }
+        return Number(total);
+    };
+    getPositivePercentage = () => {
+        return Math.round(
+            (this.state.good / this.getTotalFeedback()) *
+                100,
+        );
+    };
+
     render() {
         window.onload = background;
 
-        const total = Number(
-            this.state.good +
-                this.state.neutral +
-                this.state.bad,
-        );
-        const positivePercentage = Math.round(
-            (this.state.good / total) * 100,
-        );
+        const total = this.getTotalFeedback();
+
         return (
             <Section>
                 <FeedbackOptions
@@ -41,9 +47,7 @@ class App extends Component {
                         neutral={this.state.neutral}
                         bad={this.state.bad}
                         total={total}
-                        positivePercentage={
-                            positivePercentage
-                        }
+                        posPercent={this.getPositivePercentage()}
                     ></Statistics>
                 ) : (
                     <Notification message="There is no feedback" />

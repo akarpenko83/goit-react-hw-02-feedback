@@ -6,8 +6,6 @@ export default function FeedbackOptions({
     options,
     onLeaveFeedback,
 }) {
-    // const { good, neutral, bad } = options;
-    // const { onLeaveFeedback } = props.onLeaveFeed;
     return (
         <div>
             {options.map(option => (
@@ -19,7 +17,6 @@ export default function FeedbackOptions({
                     {option}
                 </Button>
             ))}
-            ;
         </div>
     );
 }

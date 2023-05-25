@@ -10,7 +10,7 @@ export default function Statistics({
     neutral,
     bad,
     total,
-    positivePercentage,
+    posPercent,
 }) {
     return (
         <StatsContainer>
@@ -29,7 +29,7 @@ export default function Statistics({
             </StatsData>
             <StatsData>
                 Positive feedback:
-                <span>{positivePercentage}%</span>
+                <span>{posPercent}%</span>
             </StatsData>
         </StatsContainer>
     );
@@ -39,5 +39,5 @@ Statistics.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    positivePercentage: PropTypes.number.isRequired,
+    posPercent: PropTypes.number,
 };
