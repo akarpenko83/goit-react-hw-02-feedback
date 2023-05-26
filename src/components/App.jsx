@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import background from './utils/background';
-import Section from './feedback/Section';
-import Statistics from './feedback/Statistics';
-import FeedbackOptions from './feedback/FeedbackOptions';
-import Notification from './feedback/Notification';
+import background from '../utils/background';
+import Section from './Section';
+import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
+import Notification from './Notification';
 
 class App extends Component {
     state = {
@@ -17,11 +17,12 @@ class App extends Component {
         }));
     };
     getTotalFeedback = () => {
-        let total = 0;
-        for (let key in this.state) {
-            total += this.state[key];
-        }
-        return Number(total);
+        return Number(
+            Object.values(this.state).reduce(
+                (acc, value) => acc + value,
+                0,
+            ),
+        );
     };
     getPositivePercentage = () => {
         return Math.round(
